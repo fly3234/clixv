@@ -1,0 +1,701 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "helpp",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Allgemein",
+                  "customid": "allgemein_1",
+                  "style": "PRIMARY",
+                  "emoji": "",
+                  "URL": ""
+                }
+              ]
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "6600FF",
+          "title": "**Hilfe-Menu**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "Wähle unten eine Kategorie aus!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Made by Fly",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "actions": [
+        {
+          "name": "delete all",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "msgcount": "100"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "actions": [
+        {
+          "name": "sss",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Allgemein",
+                  "customid": "button_1",
+                  "style": "SUCCESS",
+                  "emoji": "",
+                  "URL": ""
+                },
+                {
+                  "label": "Moderator",
+                  "customid": "button_2",
+                  "style": "DANGER",
+                  "emoji": "",
+                  "URL": ""
+                }
+              ]
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF0000",
+          "title": "Test",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Test",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ticket",
+      "actions": [
+        {
+          "name": "create",
+          "category": "Channel Action",
+          "type": "Create Channel",
+          "messageActionRows": [],
+          "channelname": "ticket_${dbsVars.CommandAuthor.displayName}",
+          "chancategory": "916392492209950782",
+          "reason": "Ticket",
+          "channeltype": "Text",
+          "savetovariable": "new_ticket",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "update perms",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.new_ticket.id}",
+          "permid": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ],
+          "allow": "Deny"
+        },
+        {
+          "name": "only author",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.new_ticket.id}",
+          "permid": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ],
+          "allow": "Allow"
+        },
+        {
+          "name": "team",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.new_ticket.id}",
+          "permid": "916475082631688242",
+          "permissions": [
+            "ADD_REACTIONS",
+            "VIEW_AUDIT_LOG",
+            "STREAM",
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES",
+            "MANAGE_MESSAGES",
+            "EMBED_LINKS",
+            "ATTACH_FILES",
+            "READ_MESSAGE_HISTORY",
+            "MENTION_EVERYONE",
+            "CONNECT",
+            "SPEAK",
+            "MUTE_MEMBERS",
+            "DEAFEN_MEMBERS",
+            "MOVE_MEMBERS",
+            "CHANGE_NICKNAME"
+          ],
+          "allow": "Allow"
+        },
+        {
+          "name": "willkommen",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${tempVars.new_ticket.id}",
+          "color": "FF0000",
+          "title": "**Ticket**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "https://cdn.discordapp.com/attachments/912800534820446268/916474400667213824/a_6827aa6d530d7766b12782adc79f3977_1.gif",
+          "authorlink": "",
+          "description": "Hey <@${dbsVars.CommandAuthor.id}>, bitte Beschreibe uns dein Anliegen! \nDer Support ist bald für dich da.",
+          "thumbnail": "https://cdn.discordapp.com/attachments/912800534820446268/916474400667213824/a_6827aa6d530d7766b12782adc79f3977_1.gif",
+          "image": "",
+          "footer": "ClixV",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "embn",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "916489522097844334",
+          "color": "0FFFAF",
+          "title": "**Ticket erstellt**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "<@${dbsVars.CommandAuthor.id}> hat ein Ticket erstellt, <#${tempVars.new_ticket.id}>!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Ticket System",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "actions": [
+        {
+          "name": "check",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "dsdsdd",
+              "category": "Channel Action",
+              "type": "Delete Channel",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "reason": "Ticket gelöscht"
+            },
+            {
+              "name": "embsbs",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "916489522097844334",
+              "color": "FFDD36",
+              "title": "**Ticket gelöscht!**",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+              "authorlink": "",
+              "description": "<@${dbsVars.CommandAuthor.id}> hat ein Ticket gelöscht!",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Ticket System",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "ss",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "**Keine Rechte, frag einen Administrator!**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "ADMINISTRATOR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "globalban",
+      "actions": [
+        {
+          "name": "store",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "userglobalban",
+          "vartype": "Number",
+          "savevartype": "global",
+          "param": "1"
+        },
+        {
+          "name": "set",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${globalVars.userglobalban}",
+          "field": "globalban",
+          "fieldvalue": "1"
+        }
+      ]
+    },
+    {
+      "name": "lock",
+      "actions": [
+        {
+          "name": "checkckk",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "update locked",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "permid": "${dbsVars.guild.id}",
+              "permissions": [
+                "SEND_MESSAGES"
+              ],
+              "allow": "Deny"
+            },
+            {
+              "name": "ssss",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "**${dbsVars.CommandAuthor.displayName} hat den Channel gesperrt 🔐!**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "ADMINISTRATOR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unlock",
+      "actions": [
+        {
+          "name": "checkckk_1",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "update locked_1",
+              "category": "Channel Action",
+              "type": "Update Channel Permissions",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "permid": "${dbsVars.guild.id}",
+              "permissions": [
+                "SEND_MESSAGES"
+              ],
+              "allow": "Allow"
+            },
+            {
+              "name": "ssss_1",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "**${dbsVars.CommandAuthor.displayName} hat den Channel entsperrt 🔓!**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "ADMINISTRATOR"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mute",
+      "perms": [
+        "teammitglied"
+      ],
+      "actions": [
+        {
+          "name": "userrr",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "usertomute",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "addd",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${tempVars.usertomute.id}",
+          "rolename": "stumm"
+        },
+        {
+          "name": "ssds",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "**<@${dbsVars.CommandAuthor.id} wurde stummgeschaltet 🔇!**>",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "unmute",
+      "perms": [
+        "teammitglied"
+      ],
+      "actions": [
+        {
+          "name": "userrr_1",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "usertounmute",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "remove",
+          "category": "User Action",
+          "type": "Remove Role From User",
+          "messageActionRows": [],
+          "user": "${tempVars.usertounmute.id}",
+          "rolename": "stumm",
+          "reason": "Unmute"
+        },
+        {
+          "name": "ssds_1",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "**<@${dbsVars.CommandAuthor.id} wurde freigeschaltet 🔊!**",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ban",
+      "actions": [
+        {
+          "name": "checksssd",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "getusertoban",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "messageActionRows": [],
+              "varname": "usertoban",
+              "vartype": "User",
+              "savevartype": "temp"
+            },
+            {
+              "name": "grund",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "messageActionRows": [],
+              "varname": "banreason",
+              "vartype": "Text",
+              "savevartype": "temp",
+              "param": "2+"
+            },
+            {
+              "name": "abab",
+              "category": "User Action",
+              "type": "Ban User",
+              "messageActionRows": [],
+              "user": "${tempVars.usertoban.id}",
+              "reason": "${tempVars.banreason}",
+              "days": ""
+            },
+            {
+              "name": "ssd",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Grund:",
+                  "value": "${tempVars.banreason}!",
+                  "inline": "true"
+                }
+              ],
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "FF0000",
+              "title": "**Banhammer geschwungen**",
+              "url": "",
+              "authorname": "<@${dbsVars.CommandAuthor.id}>",
+              "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+              "authorlink": "",
+              "description": "<@${tempVars.usertoban.id}> wurde von <@${dbsVars.CommandAuthor.id}> gebannt!",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "BAN_MEMBERS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "warn",
+      "perms": [
+        "teammitglied"
+      ],
+      "actions": [
+        {
+          "name": "get men",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "usertowarn",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "stotrre",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "warnreason",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "2+"
+        },
+        {
+          "name": "editt",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.usertowarn.id}",
+          "field": "warns",
+          "oper": "+",
+          "value": "1"
+        },
+        {
+          "name": "send warn",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "**<@${tempVars.usertowarn.id}> wurde gewarnt!**\n**Grund: ${tempVars.warnreason}!**",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "edwa",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "15",
+          "unit": "seconds"
+        },
+        {
+          "name": "ds",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "warnings",
+      "actions": [
+        {
+          "name": "sdsdsda",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "warningsuser",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getttttt",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.warningsuser.id}",
+          "field": "warns",
+          "varname": "warns",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "sdssd",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandAuthor.id}",
+          "color": "EEFF00",
+          "title": "**Verwarnungen**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "<@${tempVars.warningsuser.id}> hat ${tempVars.warns} Verwarnung/en!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "edwa_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "15",
+          "unit": "seconds"
+        },
+        {
+          "name": "ds_1",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "delwarn",
+      "perms": [
+        "teammitglied"
+      ],
+      "actions": [
+        {
+          "name": "delwarnuser",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "delwarnuser",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "settt",
+          "category": "User Data",
+          "type": "Set User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.delwarnuser.id}",
+          "field": "warns",
+          "fieldvalue": "0"
+        },
+        {
+          "name": "sdssd_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandAuthor.id}",
+          "color": "EEFF00",
+          "title": "**Verwarnungen entfernt**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "<@${dbsVars.CommandAuthor.id}> hat die Verwarnung/en von <@${tempVars.delwarnuser.id}> zurückgesetzt!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "ClixV",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "edwa_1_1",
+          "category": "Control",
+          "type": "Wait",
+          "messageActionRows": [],
+          "waitduration": "15",
+          "unit": "seconds"
+        },
+        {
+          "name": "ds_1_1",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    }
+  ]
+}

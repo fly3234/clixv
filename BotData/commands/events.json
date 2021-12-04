@@ -1,0 +1,447 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [
+        {
+          "name": "m",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Regelwerk",
+                  "customid": "",
+                  "style": "LINK",
+                  "emoji": "📜",
+                  "URL": "https://discord.com/channels/903283332224270386"
+                },
+                {
+                  "label": "Leaks",
+                  "customid": "",
+                  "style": "LINK",
+                  "emoji": "💎",
+                  "URL": "https://discord.com/channels/913846578467459082"
+                },
+                {
+                  "label": "Allowlist",
+                  "customid": "",
+                  "style": "LINK",
+                  "emoji": "🛡",
+                  "URL": "https://discord.com/channels/915954615525195806"
+                }
+              ]
+            }
+          ],
+          "channelname": "903283326855569468",
+          "color": "00FF80",
+          "title": "**Neues Mitglied!**",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "${tempVars.newuser.user.avatarURL}",
+          "authorlink": "",
+          "description": "Hey <@${tempVars.newuser.id}> willkommen auf ClixV!\n",
+          "thumbnail": "",
+          "image": "",
+          "footer": "ClixV | 2021©",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "add",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "rolename": "903283308459352126"
+        }
+      ],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "check warns",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "s",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495392206622780"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${tempVars.availableguildmember.id}",
+          "field": "warns",
+          "compare": "equal to",
+          "value": "1"
+        },
+        {
+          "name": "checkk",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "s_1",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495444073406526"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.guild.id}",
+          "field": "warns",
+          "compare": "equal to",
+          "value": "2"
+        },
+        {
+          "name": "checkk_1",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "s_2",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495480920367136"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.guild.id}",
+          "field": "warns",
+          "compare": "equal to",
+          "value": "3"
+        },
+        {
+          "name": "checksss",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "remobe",
+              "category": "User Action",
+              "type": "Remove Role From User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495392206622780",
+              "reason": "Keine Warns"
+            },
+            {
+              "name": "remobe_1",
+              "category": "User Action",
+              "type": "Remove Role From User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495444073406526",
+              "reason": "Keine Warns"
+            },
+            {
+              "name": "remobe_1_1",
+              "category": "User Action",
+              "type": "Remove Role From User",
+              "messageActionRows": [],
+              "user": "${dbsVars.guild.id}",
+              "rolename": "916495480920367136",
+              "reason": "Keine Warns"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "user": "${dbsVars.guild.id}",
+          "field": "warns",
+          "compare": "equal to",
+          "value": "0"
+        },
+        {
+          "name": "delete all",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "messageActionRows": [],
+          "channelname": "903283360338690048",
+          "msgcount": "100"
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [
+        {
+          "name": "status",
+          "category": "Bot Action",
+          "type": "Set Bot Status",
+          "messageActionRows": [],
+          "presencestatus": "idle"
+        },
+        {
+          "name": "acc",
+          "category": "Bot Action",
+          "type": "Set Bot Activity",
+          "messageActionRows": [],
+          "activityname": "ClixV",
+          "activitytype": "WATCHING",
+          "streamurl": ""
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "Channel Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdchannel"
+      }
+    },
+    {
+      "name": "Channel Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedchannel"
+      }
+    },
+    {
+      "name": "Channel Pins Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatepinschannel"
+      }
+    },
+    {
+      "name": "Channel Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatechannel"
+      }
+    },
+    {
+      "name": "Emoji Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdemoji"
+      }
+    },
+    {
+      "name": "Emoji Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedemoji"
+      }
+    },
+    {
+      "name": "Emoji Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatedemoji"
+      }
+    },
+    {
+      "name": "Guild Ban Remove",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Available",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Speaking",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Unavailable",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Typing Start",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "User Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Button Interaction",
+      "perms": [],
+      "actions": [
+        {
+          "name": "check",
+          "category": "Array",
+          "type": "Check If Array Contains Value",
+          "trueActions": [
+            {
+              "name": "button info",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "${tempVars.buttoninteraction.channelId}",
+              "messagetext": "**Allgemeine Funktionen**\n``?userinfo @user``",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "varname": "${tempVars.buttoninteraction}",
+          "value": "button_1"
+        }
+      ],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Select Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Command Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    }
+  ]
+}
